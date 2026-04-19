@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>날짜 위젯</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .date-text {
+      font-size: 18px;
+      color: #555;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <p class="date-text" id="date-str"></p>
+  <script>
+    const days = ['일','월','화','수','목','금','토'];
+    function update() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = now.getMonth() + 1;
+      const d = now.getDate();
+      const day = days[now.getDay()];
+      document.getElementById('date-str').textContent =
+        `.ﾟ｡+。ε ${y}년 ${m}월 ${d}일 ${day}요일 з｡+.｡ﾟ`;
+    }
+    update();
+    setInterval(update, 60000);
+  </script>
+</body>
+</html>
